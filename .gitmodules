@@ -1,0 +1,9 @@
+[submodule "modules/terraform-google-kubernetes-engine"]
+	path = modules/terraform-google-kubernetes-engine
+	url = https://github.com/terraform-google-modules/terraform-google-kubernetes-engine.git
+[submodule "modules/terraform-google-project-factory"]
+	path = modules/terraform-google-project-factory
+	url = https://github.com/terraform-google-modules/terraform-google-project-factory.git
+[submodule "modules/terraform-google-org-policy"]
+	path = modules/terraform-google-org-policy
+	url = https://github.com/terraform-google-modules/terraform-google-org-policy.git
