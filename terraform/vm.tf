@@ -51,7 +51,7 @@ resource "google_storage_bucket_access_control" "public_rule" {
 }
 
 module "mongodb_template" {
-  source               = "./modules/terraform-google-vm/modules/instance_template"
+  source               = "terraform-google-modules/vm/google//modules/instance_template"
 
   project_id           = var.project_id
   subnetwork_project   = var.project_id
@@ -69,7 +69,7 @@ module "mongodb_template" {
 }
 
 module "mongodb_mig" {
-  source            = "./modules/terraform-google-vm/modules/mig"
+  source            = "terraform-google-modules/vm/google//modules/mig"
 
   project_id          = var.project_id
   instance_template   = module.mongodb_template.self_link

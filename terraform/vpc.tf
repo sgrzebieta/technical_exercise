@@ -1,5 +1,5 @@
 module "vpc" {
-    source  = "./modules/terraform-google-network"
+    source       = "terraform-google-modules/network/google"
 
     project_id   = var.project_id
     network_name = "wiz-tc-vpc"
@@ -44,12 +44,5 @@ module "vpc" {
             tags              = "egress-inet"
             next_hop_internet = "true"
         },
-        # {
-        #     name                   = "mongodb"
-        #     description            = "mongdb access"
-        #     source_range           = "10.30.0.0/18"
-        #     tags                   = "mongdb"
-        #     next_hop_instance      = "mongodb"
-        # },
     ]
 }
