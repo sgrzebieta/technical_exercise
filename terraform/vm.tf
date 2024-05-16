@@ -64,6 +64,10 @@ module "mongodb_template" {
   source_image       = data.google_compute_image.mongodb.self_link
   startup_script     = templatefile("${path.module}/scripts/backup.sh.tpl", { bucket_name = "google_storage_bucket.mongo_backup.url" })
 
+  tags = [
+    "mongodb"
+  ]
+
   depends_on = [
     module.vpc
   ]
@@ -116,6 +120,10 @@ resource "google_compute_firewall" "ssh" {
     ports    = ["22"]
   }
   source_ranges = ["35.235.240.0/20"]
+
+  depends_on = [
+    module.vpc
+   ]
 }
 
 resource "google_compute_firewall" "mongdb" {
@@ -129,9 +137,15 @@ resource "google_compute_firewall" "mongdb" {
     ports    = ["27017"]
   }
 
+  target_tags = "mongodb"
+
   source_ranges = [
     "10.10.0.0/17",
     "10.30.0.0/18",
     "10.40.0.0/18",
   ]
+
+  depends_on = [
+    module.vpc
+   ]
 }
