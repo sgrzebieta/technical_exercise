@@ -1,1 +1,4 @@
 
+[submodule "tasky"]
+	path = tasky
+	url = git@github.com:jeffthorne/tasky.git
