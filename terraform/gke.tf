@@ -59,5 +59,9 @@ resource "google_project_iam_member" "project" {
   project = var.project_id
   role    = "roles/owner"
   member  = "serviceAccount:${module.gke.service_account}"
+
+  depends_on = [
+    module.gke
+  ]
 }
 
