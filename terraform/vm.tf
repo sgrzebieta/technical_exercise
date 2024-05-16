@@ -18,7 +18,7 @@ resource "google_compute_router" "default" {
 }
 
 module "cloud_nat" {
-  source     = "terraform-google-modules/cloud-nat/google"
+  source = "terraform-google-modules/cloud-nat/google"
 
   router     = google_compute_router.default.name
   project_id = var.project_id
@@ -51,17 +51,17 @@ resource "google_storage_bucket_access_control" "public_rule" {
 }
 
 module "mongodb_template" {
-  source               = "terraform-google-modules/vm/google//modules/instance_template"
+  source = "terraform-google-modules/vm/google//modules/instance_template"
 
-  project_id           = var.project_id
-  subnetwork_project   = var.project_id
-  region               = var.region
-  network              = module.vpc.network_self_link
-  subnetwork           = "subnet-02"
-  service_account      =  local.mongo_sa
-  name_prefix          = "mongodb"
-  source_image         = data.google_compute_image.mongodb.self_link
-  startup_script       = templatefile("${path.module}/scripts/backup.sh.tpl", {bucket_name = "google_storage_bucket.mongo_backup.url" })
+  project_id         = var.project_id
+  subnetwork_project = var.project_id
+  region             = var.region
+  network            = module.vpc.network_self_link
+  subnetwork         = "subnet-02"
+  service_account    = local.mongo_sa
+  name_prefix        = "mongodb"
+  source_image       = data.google_compute_image.mongodb.self_link
+  startup_script     = templatefile("${path.module}/scripts/backup.sh.tpl", { bucket_name = "google_storage_bucket.mongo_backup.url" })
 
   depends_on = [
     module.vpc
@@ -69,14 +69,14 @@ module "mongodb_template" {
 }
 
 module "mongodb_mig" {
-  source            = "terraform-google-modules/vm/google//modules/mig"
+  source = "terraform-google-modules/vm/google//modules/mig"
 
   project_id          = var.project_id
   instance_template   = module.mongodb_template.self_link
   region              = var.region
   hostname            = "mongodb"
   target_size         = 1
-  autoscaling_enabled = true
+  autoscaling_enabled = false
   min_replicas        = 1
   health_check_name   = "mongodb-http-hc"
 

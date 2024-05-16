@@ -17,20 +17,20 @@ provider "kubernetes" {
 }
 
 module "gke" {
-  source  = "terraform-google-modules/kubernetes-engine/google"
+  source = "terraform-google-modules/kubernetes-engine/google"
 
-  project_id                 = var.project_id
-  name                       = "wiz-tc"
-  region                     = var.region
-  zones                      = var.zones
-  network                    = module.vpc.network_name
-  datapath_provider          = "ADVANCED_DATAPATH"
-  subnetwork                 = "subnet-01"
-  ip_range_pods              = "subnet-01-secondary-01"
-  ip_range_services          = "subnet-01-secondary-02"
-  remove_default_node_pool   = true
-  http_load_balancing        = true
-  deletion_protection        = false
+  project_id               = var.project_id
+  name                     = "wiz-tc"
+  region                   = var.region
+  zones                    = var.zones
+  network                  = module.vpc.network_name
+  datapath_provider        = "ADVANCED_DATAPATH"
+  subnetwork               = "subnet-01"
+  ip_range_pods            = "subnet-01-secondary-01"
+  ip_range_services        = "subnet-01-secondary-02"
+  remove_default_node_pool = true
+  http_load_balancing      = true
+  deletion_protection      = false
 
   node_pools = [
     {

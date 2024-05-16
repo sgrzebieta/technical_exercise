@@ -4,6 +4,6 @@ output "subnets_ids" {
 }
 
 output "subnets_secondary_ranges" {
-  value = module.vpc.subnets_secondary_ranges
+  value       = module.vpc.subnets_secondary_ranges
   description = "A list of secondary ranges associated with subnets"
 }
