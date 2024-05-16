@@ -58,7 +58,7 @@ module "mongodb_template" {
   region             = var.region
   network            = module.vpc.network_self_link
   subnetwork         = "subnet-02"
-  machine_type       = "e2.medium"
+  machine_type       = "e2-medium"
   service_account    = local.mongo_sa
   name_prefix        = "mongodb"
   source_image       = data.google_compute_image.mongodb.self_link
