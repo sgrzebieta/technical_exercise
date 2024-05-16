@@ -2,8 +2,8 @@ terraform {
   required_version = ">= 1.8.3"
 
   backend "gcs" {
-    bucket = "tf-state-1972356"
-    prefix = "terraform/state/folders-and-policies"
+    bucket = "tf-state-867675"
+    prefix = "terraform/state/wiz_tc"
   }
 
   required_providers {
