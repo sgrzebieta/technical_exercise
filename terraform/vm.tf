@@ -137,7 +137,9 @@ resource "google_compute_firewall" "mongdb" {
     ports    = ["27017"]
   }
 
-  target_tags = "mongodb"
+  target_tags = [
+    "mongodb"
+  ]
 
   source_ranges = [
     "10.10.0.0/17",
