@@ -2,3 +2,12 @@
 [submodule "tasky"]
 	path = tasky
 	url = git@github.com:jeffthorne/tasky.git
+[submodule "terraform/modules/terraform-google-network"]
+	path = terraform/modules/terraform-google-network
+	url = git@github.com:terraform-google-modules/terraform-google-network.git
+[submodule "terraform/modules/terraform-google-vm"]
+	path = terraform/modules/terraform-google-vm
+	url = git@github.com:terraform-google-modules/terraform-google-vm.git
+[submodule "terraform/modules/terraform-google-kubernetes-engine"]
+	path = terraform/modules/terraform-google-kubernetes-engine
+	url = git@github.com:terraform-google-modules/terraform-google-kubernetes-engine.git
