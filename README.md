@@ -13,4 +13,7 @@ Build a MongoDB server running on a VM configured for access by the Kubernetes c
 Create and configure object storage to hold MongoDB backups and set the storage object to have public read permissions.
 
 ## Architecture
-![alt text](wiztc.drawio.png "Architecture")
+### Infrastructure
+![alt text](wiztc.drawio.png "infrastructure")
+### Kubernetes
+![alt text](gke.drawio.png "gke")
