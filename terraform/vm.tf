@@ -123,7 +123,7 @@ resource "google_compute_firewall" "ssh" {
 
   depends_on = [
     module.vpc
-   ]
+  ]
 }
 
 resource "google_compute_firewall" "mongdb" {
@@ -147,5 +147,5 @@ resource "google_compute_firewall" "mongdb" {
 
   depends_on = [
     module.vpc
-   ]
+  ]
 }
