@@ -47,7 +47,7 @@ resource "kubernetes_deployment" "tasky" {
 
           env {
             name  = "MONGODB_URI"
-            value = "mongodb://wiztc:We!come123@10.20.10.3/[defaultauthdb]"
+            value = "mongodb://10.20.10.2/[defaultauthdb]"
           }
 
           env {

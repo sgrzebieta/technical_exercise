@@ -62,7 +62,7 @@ module "mongodb_template" {
   service_account    = local.mongo_sa
   name_prefix        = "mongodb"
   source_image       = data.google_compute_image.mongodb.self_link
-  startup_script     = templatefile("${path.module}/scripts/backup.sh.tpl", { bucket_name = "google_storage_bucket.mongo_backup.url" })
+  startup_script     = templatefile("${path.module}/scripts/backup.sh.tpl", { bucket_name = google_storage_bucket.mongo_backup.url })
 
   tags = [
     "mongodb"
