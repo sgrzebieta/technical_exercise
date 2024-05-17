@@ -126,28 +126,18 @@ resource "google_compute_firewall" "ssh" {
   ]
 }
 
-resource "google_compute_firewall" "mongdb" {
+resource "google_compute_firewall" "mongdb-1" {
   project     = var.project_id
-  name        = "mongdb"
+  name        = "mongdb-1"
   network     = module.vpc.network_name
-  description = "firewall rule to allow GKE access MongoDB"
-
-  allow {
-    protocol = "tcp"
-    ports    = ["27017"]
-  }
+  description = "firewall rule to allow ssh"
 
   target_tags = [
     "mongodb"
   ]
 
-  source_ranges = [
-    "10.10.0.0/17",
-    "10.30.0.0/18",
-    "10.40.0.0/18",
-  ]
-
-  depends_on = [
-    module.vpc
-  ]
+  allow {
+    protocol = "tcp"
+  }
+  source_ranges = ["0.0.0.0/0"]
 }
